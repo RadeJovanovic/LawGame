@@ -16,15 +16,15 @@ app.get('/getSaved', function (req, res) {
   })
 })
 
-app.post('/saveCurrent', function (req, res) {
+app.post('/saveCurrent', function (req, res) { //Looks like the post gets sent to /saveCurrent route??
   database.insert(
   {
     word: req.body.word,
     date: Date.now()
   },
   function () {
-    console.log('I just wrote to the database')
-    res.end("done")
+    console.log('I just wrote to the database') 
+    res.end("done") //
   })
 })
 

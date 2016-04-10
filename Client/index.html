@@ -1,25 +1,24 @@
 <html ng-app="myApp">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--To make everything pretty-->
-    <link rel="stylesheet" type="text/css" href="style.css"> <!--Linking the CSS to the HTML-->
-  </head>
 
-  <body ng-controller="MyController"> <!--setting up the controller-->
-    
-    <h1>Learn New Words</h1>
+    <head>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="index.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
 
-    <div ng-repeat="w in words" ng-click="showGifs($event)"> {{w.word}} </div> <!--Looping over the words in $scope.words-->
-
-    <div>
-      <input ng-model="newWord">
-      <button ng-click="saveThisWord()">Save</button>
-      <button ng-click="getSavedWords()">Update List</button>
-    </div>
-
-    <img ng-src="{{gifUrl}}"> //gifUrl will have to be available inside our scope
-
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="index.js"></script>
+    <body ng-controller="MyController"> <!--setting up the controller-->
+        <h1>Inputting Into Database</h1>
+        <div ng-repeat="w in words" > {{w.word}} </div> <!--Looping over the words in $scope.words-->
+        <div>
+            <input ng-model="newWord">
+            <button ng-click="saveThisWord()">Save</button>
+            <button ng-click="getSavedWords()">Update List</button>
+        </div>
+      
+        <div>
+            
+        </div>
 
   </body>
 </html>
