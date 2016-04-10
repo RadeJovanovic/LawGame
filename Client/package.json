@@ -9,6 +9,8 @@
   "author": "Radomir Jovanovic",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.5.3"
+    "angular": "^1.5.3",
+    "body-parser": "^1.15.0",
+    "nedb": "^1.8.0"
   }
 }
