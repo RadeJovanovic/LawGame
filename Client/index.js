@@ -9,7 +9,8 @@ myApp.service('sceneUpdate', function($http) {
     this.saveWord = function(newScene) {
         var url = baseUrl + "saveCurrent"
         return $http.post(url, {
-            "scene": newScene
+            "sceneID": newScene.sceneID,
+            "sceneURL": newScene.sceneURL
         })
     }
 
@@ -23,8 +24,9 @@ myApp.controller('sceneEditController', function($scope, sceneUpdate) {
 
     // These $scope guys will be available in the HTML
     $scope.scenes = []
-    $scope.newScene = 'type URL here'
-
+    $scope.newScene.sceneID = 'sceneID'
+    $scope.newScene.sceneURL = 'sceneURL'
+    
     $scope.saveThisScene = function() {
         sceneUpdate.saveWord($scope.newScene)
             .then(saveSuccess, error)

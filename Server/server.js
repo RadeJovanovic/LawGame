@@ -22,7 +22,8 @@ app.get('/getSaved', function(req, res) {
 
 app.post('/saveCurrent', function(req, res) {
     database.insert({
-            scene: req.body.scene,
+            sceneID: req.body.sceneID,
+            sceneULR:req.body.sceneURL            
         },
         function() {
             console.log('I just wrote to the database')

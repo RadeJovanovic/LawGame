@@ -13,15 +13,18 @@
     <h1>Scene Editor</h1>
 
     <div>
+        <label>Scene Number:
+            <input type="text" name="sceneID" ng-model="newScene.sceneID"><br>
+        </label>
         <label>Scene Video:
-            <input tupe="text" ng-model="newScene"><br>
+            <input tupe="text" name="sceneURL" ng-model="newScene.sceneURL"><br>
         </label>
         
         <button ng-click="saveThisScene()">Save Scene</button>
         <button ng-click="getSavedScenes()">Update Scene List</button>
     </div>
     
-    <div ng-repeat="s in scenes"> {{s.scene}} </div>
+<!--    <div ng-repeat="s in scenes"> {{s.scene}} </div>-->
 
     
 </body>
