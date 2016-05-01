@@ -23,7 +23,7 @@ myApp.controller('sceneEditController', function($scope, sceneUpdate) {
 
     // These $scope guys will be available in the HTML
     $scope.scenes = []
-    $scope.newScene = 'cat'
+    $scope.newScene = 'type URL here'
 
     $scope.saveThisScene = function() {
         sceneUpdate.saveWord($scope.newScene)
