@@ -1,0 +1,32 @@
+<!--ng-app is placed on the HTML page to show that it is the root DOM element. The ng-app property informs that our Document Object Model (DOM) and HTML document are also an AngularJS document. In many cases, only a single part of the HTML will be an AngularJS application-->
+<html ng-app="myApp">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body ng-controller="sceneEditController">
+
+    <h1>Scene Editor</h1>
+
+    <div>
+        <label>Scene Number:
+            <input type="text" name="sceneID" ng-model="newScene.sceneID"><br>
+        </label>
+        <label>Scene Video:
+            <input tupe="text" name="sceneURL" ng-model="newScene.sceneURL"><br>
+        </label>
+        
+        <button ng-click="saveThisScene()">Save Scene</button>
+        <button ng-click="getSavedScenes()">Update Scene List</button>
+    </div>
+    
+<!--    <div ng-repeat="s in scenes"> {{s.scene}} </div>-->
+
+    
+</body>
+
+</html>
