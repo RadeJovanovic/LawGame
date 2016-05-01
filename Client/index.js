@@ -1,45 +1,49 @@
-var myApp = angular.module('myApp',[]) //Creates a module called myApp
+//index.js is all about angular, with the aim of making a single page function. Express is used in server.js to make multiple pages work.
 
-myApp.service('InputService', function($http) {
+var myApp = angular.module('myApp', [])
 
-  var baseUrl = "http://localhost:8080/"
+myApp.service('sceneUpdate', function($http) {
 
-  this.saveWord = function (newWord) {
-    var url = baseUrl + "saveCurrent"
-    return $http.post(url, {"word": newWord})
-  }
+    var baseUrl = "http://localhost:8080/"
 
-  this.getSaved = function () {
-    var url = baseUrl + "getSaved"
-    return $http.get(url)
-  }
+    this.saveWord = function(newScene) {
+        var url = baseUrl + "saveCurrent"
+        return $http.post(url, {
+            "scene": newScene
+        })
+    }
+
+    this.getSaved = function() {
+        var url = baseUrl + "getSaved"
+        return $http.get(url)
+    }
 })
 
-myApp.controller('MyController', function($scope, InputService) {//All of our services have been injected into our controller
-  
-  // These $scope guys will be available in the HTML
-  $scope.words = []
-  $scope.newWord = 'Input Response Here' 
+myApp.controller('sceneEditController', function($scope, sceneUpdate) {
 
-  $scope.saveThisWord = function () {
-    InputService.saveWord( $scope.newWord )
-    .then(saveSuccess, error)    
-  }
+    // These $scope guys will be available in the HTML
+    $scope.scenes = []
+    $scope.newScene = 'cat'
 
-  $scope.getSavedWords = function() {
-    InputService.getSaved()
-    .then(loadSuccess, error)
-  }
-  
-  function saveSuccess (json) {
-    // console.log(json)
-  }
+    $scope.saveThisScene = function() {
+        sceneUpdate.saveWord($scope.newScene)
+            .then(saveSuccess, error)
+    }
 
-  function loadSuccess (json) {
-    $scope.words = json.data
-  }
+    $scope.getSavedScenes = function() {
+        sceneUpdate.getSaved()
+            .then(loadSuccess, error)
+    }
 
-  function error (err) {
-    console.log(err)
-  }
+    function saveSuccess(json) {
+        console.log(json)
+    }
+
+    function loadSuccess(json) {
+        $scope.scenes = json.data
+    }
+
+    function error(err) {
+        console.log(err)
+    }
 })

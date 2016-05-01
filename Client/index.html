@@ -1,24 +1,44 @@
+<!--ng-app is placed on the HTML page to show that it is the root DOM element. The ng-app property informs that our Document Object Model (DOM) and HTML document are also an AngularJS document. In many cases, only a single part of the HTML will be an AngularJS application-->
 <html ng-app="myApp">
 
-    <head>
-        <script src="node_modules/angular/angular.js"></script>
-        <script src="index.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="index.js"></script>
+</head>
 
-    <body ng-controller="MyController"> <!--setting up the controller-->
-        <h1>Inputting Into Database</h1>
-        <div ng-repeat="w in words" > {{w.word}} </div> <!--Looping over the words in $scope.words-->
-        <div>
-            <input ng-model="newWord">
-            <button ng-click="saveThisWord()">Save</button>
-            <button ng-click="getSavedWords()">Update List</button>
-        </div>
-      
-        <div>
-            
-        </div>
+<body ng-controller="sceneEditController">
 
-  </body>
+    <h1>Scene Editor</h1>
+
+    <div>
+        <label>Scene Number:
+            <input type="text" ng-model="newScene"><br>
+        </label>
+        <label>Scene Video:
+            <input tupe="text" ng-model="newScene"><br>
+        </label>
+        
+        <button ng-click="saveThisScene()">Save Scene</button>
+        <button ng-click="getSavedScenes()">Update Scene List</button>
+    </div>
+    
+    <div ng-repeat="s in scenes"> {{s.scene}} </div>
+
+    
+</body>
+
 </html>
+<!--
+
+        <div>
+            <label>Scene Number:
+                <input type="text" name="sceneID" ng-model="sceneEdit.sceneID">
+            </label>
+            <label>Youtube URL:
+                <input type="text" name="youtubeULR" ng-model="SceneEdit.sceneURL">
+            </label>
+            <button ng-click="saveThisScene()">Save</button>
+            <button ng-click="getSavedScenes()">Update List</button>
+        </div>-->
